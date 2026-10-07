@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SteadyLearners</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        header{
+            display: flex;
+            padding:10px;
+            backdrop-filter: blur(10px);
+            background-color: rgba(236, 122, 80, 0.8);
+            justify-content: space-between;
+            top:0;
+            position: sticky;
+        }
+        nav a{
+            text-decoration:none;
+            color:rgb(37, 104, 158);
+        }
+        nav a:hover{
+            color:white;
+            transition: all 0.3s ease;
+        }
+        nav ul{
+            list-style: none;
+            display:flex;
+            gap:10px;
+            
+        }
+        #in{
+            border:none;
+            padding:2px;
+            border-radius: 30px;
+            background-color: rgb(37, 104, 158);
+        }
+        #in:hover {
+            background-color: rgba(236, 122, 80, 0.8);
+        }
+        #in a{
+            color:white;
+        }
+        .hero{
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            padding:40px;
+            background: url("images (1).jpg") no-repeat center center fixed;
+            background-size: cover;
+        }
+        .hero h1{
+            font-size:2.5rem;
+            color:rgb(37, 104, 158);
+            margin-bottom:20px;
+        }
+        .hero p{
+            font-size:1.2rem;
+            color:rgb(3, 0, 0);
+            margin-bottom:20px;
+        }
+        .hero button{
+            background-color: rgb(37, 104, 158);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .hero button:hover{
+            scale: 1.05;
+            background-color: rgb(236, 122, 80);
+        }
+        .mission{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:40px;
+            background-color: rgb(236, 122, 80);
+        }
+        .contain{
+            display:flex;
+            gap:20px;
+        }
+        .box{
+            background-color: white;
+            padding:20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width:300px;
+        }
+        .box h2{
+            color: rgb(37, 104, 158);
+            margin-bottom:10px;
+        }
+        .box p{
+            color: rgb(60, 60, 60);
+            font-size: 1rem;
+        }
+        .box:hover{
+            transform: translateY(-20px);
+            box-shadow: 0 10px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            gap:40px;
+            padding:40px;
+        }
+        .card p{
+            font-weight: bold;
+            color: rgb(37, 104, 158);
+            font-size: 1.2rem;
+        }
+        .card p:hover{
+            color: rgb(236, 122, 80);
+            scale: 1.1;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        .news{
+            flex-grow: 1;
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            align-items:center;
+            gap:20px;
+            padding:40px;
+        }
+        .say{
+            background-color: #fff;
+            padding:20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            width:300px;
+        }
+        .say p{
+            color: rgb(236, 122, 80);
+            font-size: 1rem;
+        }
+        .news-section{
+            padding:40px;
+            background-color: rgb(37, 104, 158);
+        }
+        .news-section h3{
+            color: rgb(236, 122, 80);
+            text-shadow: 0 0 3px #ff0000, 0 0 5px #0000ff;
+            margin-bottom:20px;
+        }
+        .admission{
+            padding:40px;
+        }
+        .admission h3{
+            color: rgb(236, 122, 80);
+            text-shadow: 0 0 2px #ff0000, 0 0 3px #0000ff;
+            margin-bottom:20px;
+        }
+        .chill button{
+            margin-top: 20px;
+            border:none;
+            color:white;
+            border-radius: 30px;
+            background-color: rgb(37, 104, 158);
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+        .chill button:hover{
+            scale: 1.05;
+            background-color: rgb(236, 122, 80);
+        }
+
+        bold{
+            font-weight: bold;
+        }
+        .say img{
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+        .gallery{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            align-items:center;
+            gap:20px;
+            margin:10px;
+            flex-wrap:wrap;
+        }
+        .gallery img{
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .gallery img:hover{
+            transform: scale(1.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
+        }
+        .photo-gallery{
+            padding:40px;
+        }
+        .photo-gallery h3{
+            color: rgb(236, 122, 80);
+            text-shadow: 0 0 2px #ff0000, 0 0 3px #0000ff;
+            margin-bottom:20px;
+        }
+        footer{
+            background-color: rgb(236, 122, 80);
+            text-align:center;
+            padding:20px;
+        }
+        .nav a{
+            color: white;
+            text-decoration: none;
+        }
+        .contact p{
+            color: white;
+            font-size: 0.9rem;
+            margin: 5px 0;
+        }
+        .footer{
+            color: white;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            gap: 80px;
+            padding: 20px;
+            flex-direction: row;
+        }
+        .footer li{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h3>SteadyLearners</h3>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#academics">Academics</a></li>
+                <li><a href="#admission">Admission</a></li>
+                <li id="in"><a href="form.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <h1>Welcome to SteadyLearners</h1>
+        <p>Your journey to knowledge starts here. Explore our academic programs and find the right fit for your educational goals.</p>
+        <button>Inquire now</button>
+    </section>
+    <section class="mission">
+        <div class="contain">
+            <div class="box">
+                <h2>Our Mission</h2>
+                <p>To provide a nurturing environment where students can thrive academically and personally.</p>
+            </div>
+            <div class="box">
+                <h2>Our Vision</h2>
+                <p>To be a leading educational institution recognized for excellence in teaching and learning.</p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="card">
+            <div class="ss">
+                <p>98% Graduation Rate</p>
+            </div>
+            <div class="ss">
+                <p>15+ Extracurricular Clubs</p>
+            </div>
+            <div class="ss">
+                <p>1000+ Happy Alumni</p>
+            </div>
+        </div>
+    </section>
+    <section class="news-section">
+        <div id="academics">
+        <h3>Why Choose SteadyLearners?</h3>
+        <div class="news">
+            <div class="say">
+                <img src="woman1.jpg" alt="Dr. Janet Peacemaker, Principal">
+                <p><bold>"</bold>SteadyLearners has been recognized as one of the top educational institutions in the region, receiving accolades for our innovative teaching methods and commitment to student success.<bold>"</bold><br><bold>- Dr. Janet Peacemaker, Principal</bold></p>
+            </div>
+            <div class="say">
+                <img src="man2.jpg" alt="Mr. Andrew Johnson, Head of Academics">
+                <p><bold>"</bold>Our students consistently achieve outstanding results in national and international competitions, showcasing their talent and dedication.<bold>"</bold><br><bold>- Mr. Andrew Johnson, Head of Academics</bold></p>
+            </div> 
+            <div class="say">
+                <img src="man1.jpg" alt="Mr. Elijah Brown, Dean of Students">
+                <p><bold>"</bold>We are committed to fostering a supportive and inclusive environment that empowers students to reach their full potential.<bold>"</bold><br><bold>- Mr. Elijah Brown, Dean of Students</bold></p>
+            </div> 
+        </div>
+        </div>
+    </section>
+    <section class="admission">
+        <div id="admission">
+        <h3>Admission Process</h3>
+        <p>Your journey toward academic excellence starts here. We make our enrollment process as simple and transparent as possible for families. Follow these four straightforward steps to secure your student's place.</p>
+        <br>
+        <div class="container">
+            <div class="chill">
+                <h4>Step 1: Application</h4>
+                <p>Complete the online application form with accurate information about your student.</p>
+                <br>
+                <h4>Step 2: Documentation</h4>
+                <p>Submit all required documents, including transcripts, identification, and any other necessary paperwork</p>
+                <br>
+                <h4>Step 3: Interview</h4>
+                <p>Attend the scheduled interview with our admissions committee to discuss your student's qualifications and interests.</p>
+                <br>
+                <h4>Step 4: Decision</h4>
+                <p>We will notify you of our decision within two weeks of receiving your application.</p>
+                <br>
+                <h4>Step 5: Enrollment</h4>
+                <p>Once accepted, complete the enrollment process by submitting any additional forms and fees required to secure your student's place at SteadyLearners.</p>
+                <button>Enroll Now</button>
+            </div>
+        </div>
+        </div>
+    </section>
+    <section class="photo-gallery">
+        <h3>Photo Gallery</h3>
+        <div class="gallery">
+            <img src="cam1.jpg" alt="Campus View 1">
+            <img src="cam2.jpg" alt="Campus View 2">
+            <img src="cam3.jpg" alt="Campus View 3">
+            <img src="cam4.jpg" alt="Campus View 4">
+            <img src="cam5.jpg" alt="Campus View 5">
+        </div>
+    </section>
+    <footer>
+        <div class="footer">
+            <div class="nav">
+                <ul>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">Contact</a></li>
+                    <li><a href="">Services</a></li>
+                    <li><a href="">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="contact">
+                <p>Address: 123 Learning Lane, Arena, Lagos</p>
+                <p>Email:steadylearners@gmail.com</p>
+                <p>Phone: +234 708 711 4751</p>
+            </div>
+        </div>
+        <p>&copy; 2026 SteadyLearners. All rights reserved.</p>
+    </footer>
+</body>
+</html>
